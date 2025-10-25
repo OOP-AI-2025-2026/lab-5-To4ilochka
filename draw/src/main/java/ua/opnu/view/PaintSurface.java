@@ -77,6 +77,9 @@ public class PaintSurface extends JComponent {
                 // то нічого не додаємо, т.к. це якась помилка
 
                 DrawShape shape = DrawShape.newInstance(shapeType);
+                shape.setStartPoint(startDrag);
+                shape.setEndPoint(endDrag);
+                shapes.add(shape);
 
                 // Записуємо значення стартової та кінцевої точки в об'єкт
                 shape.setStartPoint(startDrag);
@@ -108,6 +111,11 @@ public class PaintSurface extends JComponent {
     // Встановлення типу фігури
     public void setShapeType(int type) {
         this.shapeType = type;
+    }
+
+    public void clearShapes() {
+        shapes.clear();
+        repaint();
     }
 
     /*
